@@ -13,12 +13,12 @@ interface Product {
   title: string;
   image_url: string;
   price: number;
-  quantity?: number;
+  quantity: number;
 }
 
 interface CartContext {
   products: Product[];
-  addToCart(item: Product): void;
+  addToCart(item: Omit<Product, 'quantity'>): void;
   increment(id: string): void;
   decrement(id: string): void;
 }
